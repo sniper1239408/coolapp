@@ -15,6 +15,7 @@
 		E5D3184F2C0741B00090C8C2 /* coolappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D3184E2C0741B00090C8C2 /* coolappTests.swift */; };
 		E5D318592C0741B00090C8C2 /* coolappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D318582C0741B00090C8C2 /* coolappUITests.swift */; };
 		E5D3185B2C0741B00090C8C2 /* coolappUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D3185A2C0741B00090C8C2 /* coolappUITestsLaunchTests.swift */; };
+		E5E3234C2C08607300A04A71 /* fireinthehole.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E5E3234B2C08607300A04A71 /* fireinthehole.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		E5D318542C0741B00090C8C2 /* coolappUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = coolappUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D318582C0741B00090C8C2 /* coolappUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coolappUITests.swift; sourceTree = "<group>"; };
 		E5D3185A2C0741B00090C8C2 /* coolappUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coolappUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E5E3234B2C08607300A04A71 /* fireinthehole.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fireinthehole.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			children = (
 				E5D3183B2C0741AF0090C8C2 /* coolappApp.swift */,
 				E5D3183D2C0741AF0090C8C2 /* ContentView.swift */,
+				E5E3234B2C08607300A04A71 /* fireinthehole.mp3 */,
 				E5D3183F2C0741AF0090C8C2 /* Item.swift */,
 				E5D318412C0741AF0090C8C2 /* Assets.xcassets */,
 				E5D318432C0741AF0090C8C2 /* Preview Content */,
@@ -235,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5D318452C0741AF0090C8C2 /* Preview Assets.xcassets in Resources */,
+				E5E3234C2C08607300A04A71 /* fireinthehole.mp3 in Resources */,
 				E5D318422C0741AF0090C8C2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,6 +438,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -463,6 +468,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
