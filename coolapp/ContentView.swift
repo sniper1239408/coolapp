@@ -31,9 +31,10 @@ struct ContentView: View {
     }
     }
 struct fire1: View {
-    @State var othertext = 1
-    @State var image = "gd_cringe"
-    @State var audioPlayer: AVAudioPlayer?
+    @State private var othertext = 1
+    @State private var image = "gd_cringe"
+    @State private var audioPlayer: AVAudioPlayer?
+    @State private var isPresented = false
     let synthesizer = AVSpeechSynthesizer()
     func speak(text:String) {
         let utterance = AVSpeechUtterance(string: text)
@@ -82,9 +83,13 @@ struct fire1: View {
                         Text("some random text to please your day. thank you and fire in DA hole!!! \(String(othertext))")
             .onTapGesture {
                 speak(text:"you click here so i say fire in da haul")
+                    isPresented = true
             }
                             .multilineTextAlignment(.center)
                             .padding()
+                            .alert("you click here so i say fire in the hole", isPresented: $isPresented){
+                                Button("OK", role: .cancel) { }
+                            }
                         Image(image)
                             .resizable(capInsets: EdgeInsets(top: 10.0, leading: 10.0, bottom: 10, trailing: 0.0))
                             .frame(width: 500, height: 150)
@@ -98,9 +103,9 @@ struct fire1: View {
     }
 }
 struct likeLevel: View {
-    @State var dislike = false
-    @State var id = ""
-    @State var output = ""
+    @State private var dislike = false
+    @State private var id = ""
+    @State private var output = ""
     func like() {
         let url = URL(string: "https://www.boomlings.com/database/likeGJItem211.php")!
         var request = URLRequest(url: url)
@@ -155,11 +160,12 @@ struct likeLevel: View {
     }
 }
 struct comment: View {
-    @State var username = ""
-    @State var pswd = ""
-    @State var cmt = ""
-    @State var per = ""
-    @State var lvlid1 = ""
+    @State private var username = ""
+    @State private var pswd = ""
+    @State private var cmt = ""
+    @State private var per = ""
+    @State private var lvlid1 = ""
+    @State private var alrt = false
     let synthesizer = AVSpeechSynthesizer()
     var body: some View {
         Text("Comment on GD level (dosent work)")
@@ -183,21 +189,26 @@ struct comment: View {
                 let utterance = AVSpeechUtterance(string: "You know that i'm not working, so why did you click me?")
                 utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
                 synthesizer.speak(utterance)
+                alrt = true
             }
             .padding(.all, 8.0)
             .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.green/*@END_MENU_TOKEN@*/)
             .foregroundColor(/*@START_MENU_TOKEN@*/.black/*@END_MENU_TOKEN@*/)
             .cornerRadius(/*@START_MENU_TOKEN@*/12.0/*@END_MENU_TOKEN@*/)
+            .alert("You know that i'm not working, so why did you click me?", isPresented:$alrt) {
+                Button("OK", role: .cancel) { }
+            }
         }
         .padding()
     }
 }
 struct repeater: View {
-    @State var word = ""
-    @State var times = 1
-    @State var speaking = false
-    @State var startstop = "Start"
-    @State var sscolor = Color(.green)
+    @State private var word = ""
+    @State private var times = 1
+    @State private var speaking = false
+    @State private var startstop = "Start"
+    @State private var sscolor = Color(.green)
+    @State private var isPresented = false
     let synthesizer = AVSpeechSynthesizer()
     func repeat1() {
         var repeater = ""
@@ -207,6 +218,7 @@ struct repeater: View {
         let utterance = AVSpeechUtterance(string: repeater)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
         synthesizer.speak(utterance)
+        
     }
     var body: some View {
         VStack {
@@ -219,6 +231,9 @@ struct repeater: View {
         
         VStack {
             Text("Word")
+                .alert("Please enter text", isPresented: $isPresented) {
+                    Button("OK", role: .cancel) { }
+                }
             TextField("Enter word/sentence here", text:$word)
         }
         .padding()
@@ -230,7 +245,14 @@ struct repeater: View {
         }
         .padding()
         Button(startstop) {
-            if speaking == false {
+            if word == "" {
+                speaking = false
+                sscolor = Color(.green)
+                startstop = "Start"
+                synthesizer.stopSpeaking(at: .immediate)
+                isPresented = true
+            }
+            else if speaking == false {
                 speaking = true
                 sscolor = Color(.red)
                 startstop = "Stop"
